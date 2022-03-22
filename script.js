@@ -1,6 +1,6 @@
 
 // Arrays
-let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's','t','u', 'v', 'w', 'x', 'y', 'z'];
 let upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'p', 'Q', 'R', 'S','T','U', 'V', 'W', 'X', 'Y', 'Z'];
 let symbols = ['!', '@', '#', '$', '%', '^', '&', '*'];
@@ -22,7 +22,7 @@ function writePassword() {
     passwordText.value = genPassword;
   }
   else {
-    passwordTest.value = "";
+    passwordText.value = "";
   }
 
 }
@@ -37,16 +37,25 @@ function generatePassword() {
   return password;
 }
 
-// Generate functions
+// Generate functions (prompts)
 function prompts() {
   accPrompts = [];
   charLength = parseInt(prompt("How many characters would you like in your password?"));
-  if (isNaN(charLength) || charLength < 8 || charLength > 128 ) {
-      alert("Must be between 8 and 128 characters.");
+  if (isNaN(charLength) || charLength < 8 || charLength > 30 ) {
+      alert("Must be between 8 and 30 characters.");
       return;
   }
-  if (confirm) {
-    arrChoice = arrChoice.concat(upper,lower, numbers, symbols);
+  if (confirm("Should numbers be included in your password?")) {
+    arrChoice = arrChoice.concat(numbers);
+  }
+  if (confirm("Should lowercase letters be included in your password?")) {
+    arrChoice = arrChoice.concat(lower);
+  }
+  if (confirm("Should uppercase letters be included in your password?")) {
+    arrChoice = arrChoice.concat(upper);
+  }
+  if (confirm("Should symbols be included in your password?")) {
+    arrChoice = arrChoice.concat(symbols);
   }
   return true;
 }
