@@ -16,23 +16,19 @@ generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
   let accPrompts = prompts();
+  console.log(accPrompts)
   let passwordText = document.querySelector("#password");
-  if (accPrompts) {
-    let genPassword = generatePassword();
+  let genPassword = generatePassword(accPrompts);
     passwordText.value = genPassword;
-  }
-  else {
-    passwordText.value = "";
-  }
-
 }
 
 // Generate password function
-function generatePassword() {
+function generatePassword(arrayValues) {
+  console.log(arrayValues)
   let password = "";
   for (let i = 0; i < charLength; i++) {
-      let randomIndex = Math.floor(Math.random() * accPrompts.length);
-      password = password + accPrompts[randomIndex];
+      let randomIndex = Math.floor(Math.random() * arrayValues.length);
+      password = password + arrayValues[randomIndex];
   }
   return password;
 }
@@ -57,5 +53,5 @@ function prompts() {
   if (confirm("Should symbols be included in your password?")) {
     arrChoice = arrChoice.concat(symbols);
   }
-  return true;
+  return arrChoice;
 }
