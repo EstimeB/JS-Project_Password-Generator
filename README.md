@@ -1,6 +1,8 @@
 # JS-Project_Password-Generator
 Modified starter code to enables employees to generate random passwords based on criteria that they’ve selected.
+
 Feature dynamically updated HTML and CSS powered by JavaScript.
+
 When the the "Generate Password" button is clicked, character lenght is chosen and met, and criterias are seleted, it generates a password.
 
 
